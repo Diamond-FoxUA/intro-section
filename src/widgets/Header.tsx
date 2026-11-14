@@ -31,7 +31,7 @@ export default function Header() {
         </button>
       </header>
 
-      {isMenuOpen && <MobileMenu onClose={() => setIsMenuOpen(false)} />}
+      <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
     </>
   );
 }

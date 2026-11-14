@@ -27,7 +27,7 @@ export default function Hero() {
           <h1 className="text-foreground text-[39px] font-extrabold text-center">
             Make remote work
           </h1>
-          <p className="text-center font-semibold text-gray">
+          <p className="text-center font-semibold text-gray max-w-100">
             Get your team in sync, no matter your location. Streamline
             processes, create team rituals, and watch productivity soar.
           </p>
