@@ -5,7 +5,7 @@ import { NAV_ITEMS } from "@/shared/constants/navigation";
 import Icon from "@/shared/ui/Icon";
 
 type NavigationProps = {
-  onClose: () => void;
+  onClose?: () => void;
 };
 
 export default function Navigation({ onClose }: NavigationProps) {
@@ -13,21 +13,24 @@ export default function Navigation({ onClose }: NavigationProps) {
 
   return (
     <nav aria-label="Main Navigation">
-      <ul className="flex flex-col gap-5 text-gray font-semibold">
+      <ul className="text-[16px] flex flex-col lg:flex-row gap-5 lg:gap-9 text-gray font-semibold">
         {NAV_ITEMS.map((i) => (
-          <li key={i.id} onMouseLeave={() => setCurrentNavItem(null)}>
+          <li key={i.id} className="relative">
             {i.icon ? (
               <>
                 <button
                   type="button"
                   aria-label={`show links of the ${i.id}`}
-                  className="flex gap-3 items-center hover:text-foreground hover:fill-foreground group transition-colors duration-300 cursor-pointer"
+                  className="flex gap-3 lg:gap-2 items-center hover:text-foreground hover:fill-foreground group transition-colors duration-300 cursor-pointer"
                   onClick={() => {
                     if (currentNavItem === null) {
                       setCurrentNavItem(i.id);
                     } else {
                       setCurrentNavItem(null);
                     }
+                  }}
+                  onMouseEnter={() => {
+                    setCurrentNavItem(i.id);
                   }}
                 >
                   <span>{i.label}</span>
@@ -41,7 +44,10 @@ export default function Navigation({ onClose }: NavigationProps) {
                   </span>
                 </button>
                 {currentNavItem === i.id && (
-                  <ul className="pl-6.5 flex flex-col gap-5 pt-5">
+                  <ul
+                    className="lg:absolute lg:top-10 lg:right-0 lg:bg-white lg:rounded-2xl lg:gap-4 lg:shadow-2xl lg:py-5 lg:px-7 lg:pl-6.5 lg:min-w-32 flex flex-col gap-5 pt-5"
+                    onMouseLeave={() => setCurrentNavItem(null)}
+                  >
                     {i.id === "features"
                       ? i.featItems?.map((i) => (
                           <li key={i.label}>
@@ -63,9 +69,13 @@ export default function Navigation({ onClose }: NavigationProps) {
                       : i.companyItems?.map((i) => (
                           <li
                             key={i.label}
-                            className="hover:text-foreground transition-colors duration-300 cursor-pointer"
+                            className="hover:text-foreground transition-color duration-300 cursor-pointer"
                           >
-                            <a href="#" onClick={onClose}>
+                            <a
+                              href="#"
+                              onClick={onClose}
+                              className="flex items-center gap-3 hover:text-foreground transition-colors duration-300 cursor-pointer"
+                            >
                               {i.label}
                             </a>
                           </li>
