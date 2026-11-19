@@ -15,23 +15,21 @@ export default function Navigation({ onClose }: NavigationProps) {
     <nav aria-label="Main Navigation">
       <ul className="text-[16px] flex flex-col lg:flex-row gap-5 lg:gap-9 text-gray font-semibold">
         {NAV_ITEMS.map((i) => (
-          <li key={i.id} className="relative">
+          <li
+            key={i.id}
+            className="relative"
+            onMouseLeave={() => setCurrentNavItem(null)}
+          >
             {i.icon ? (
-              <>
+              <div>
                 <button
                   type="button"
                   aria-label={`show links of the ${i.id}`}
                   className="flex gap-3 lg:gap-2 items-center hover:text-foreground hover:fill-foreground group transition-colors duration-300 cursor-pointer"
-                  onClick={() => {
-                    if (currentNavItem === null) {
-                      setCurrentNavItem(i.id);
-                    } else {
-                      setCurrentNavItem(null);
-                    }
-                  }}
-                  onMouseEnter={() => {
-                    setCurrentNavItem(i.id);
-                  }}
+                  onClick={() =>
+                    setCurrentNavItem((prev) => (prev === i.id ? null : i.id))
+                  }
+                  aria-expanded={currentNavItem === i.id}
                 >
                   <span>{i.label}</span>
                   <span aria-hidden="true">
@@ -44,52 +42,50 @@ export default function Navigation({ onClose }: NavigationProps) {
                   </span>
                 </button>
                 {currentNavItem === i.id && (
-                  <ul
-                    className="lg:absolute lg:top-10 lg:right-0 lg:bg-white lg:rounded-2xl lg:gap-4 lg:shadow-2xl lg:py-5 lg:px-7 lg:pl-6.5 lg:min-w-32 flex flex-col gap-5 pt-5"
-                    onMouseLeave={() => setCurrentNavItem(null)}
+                  <div
+                    className={`lg:absolute lg:top-full lg:pt-4 z-50 ${
+                      i.id === "features" ? "lg:right-0" : "lg:left-0"
+                    }`}
                   >
-                    {i.id === "features"
-                      ? i.featItems?.map((i) => (
-                          <li key={i.label}>
-                            <a
-                              href="#"
-                              onClick={onClose}
-                              className="flex items-center gap-3 hover:text-foreground transition-colors duration-300 cursor-pointer"
+                    <ul className="lg:bg-white lg:rounded-2xl lg:gap-4 lg:shadow-2xl lg:py-5 lg:px-7 lg:pl-6.5 lg:min-w-32 flex flex-col gap-5 pt-5">
+                      {i.id === "features"
+                        ? i.featItems?.map((i) => (
+                            <li key={i.label}>
+                              <a
+                                href="#"
+                                onClick={onClose}
+                                className="flex items-center gap-3 hover:text-foreground transition-colors duration-300 cursor-pointer"
+                              >
+                                <Icon
+                                  name={i.icon}
+                                  width={16}
+                                  height={16}
+                                  className=""
+                                />
+                                <span>{i.label}</span>
+                              </a>
+                            </li>
+                          ))
+                        : i.companyItems?.map((i) => (
+                            <li
+                              key={i.label}
+                              className="hover:text-foreground transition-color duration-300 cursor-pointer"
                             >
-                              <Icon
-                                name={i.icon}
-                                width={16}
-                                height={16}
-                                className=""
-                              />
-                              <span>{i.label}</span>
-                            </a>
-                          </li>
-                        ))
-                      : i.companyItems?.map((i) => (
-                          <li
-                            key={i.label}
-                            className="hover:text-foreground transition-color duration-300 cursor-pointer"
-                          >
-                            <a
-                              href="#"
-                              onClick={onClose}
-                              className="flex items-center gap-3 hover:text-foreground transition-colors duration-300 cursor-pointer"
-                            >
-                              {i.label}
-                            </a>
-                          </li>
-                        ))}
-                  </ul>
+                              <a
+                                href="#"
+                                onClick={onClose}
+                                className="flex items-center gap-3 hover:text-foreground transition-colors duration-300 cursor-pointer"
+                              >
+                                {i.label}
+                              </a>
+                            </li>
+                          ))}
+                    </ul>
+                  </div>
                 )}
-              </>
+              </div>
             ) : (
-              <a
-                key={i.id}
-                href="#"
-                onClick={onClose}
-                className="hover:text-foreground"
-              >
+              <a href="#" onClick={onClose} className="hover:text-foreground">
                 {i.label}
               </a>
             )}
