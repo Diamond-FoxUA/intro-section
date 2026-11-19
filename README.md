@@ -1,48 +1,64 @@
-# Next.js Clean Starter Template
+# Frontend Mentor - Intro section with dropdown navigation solution
 
-An optimized, lightweight production-ready starter template for building modern web applications using **Next.js 16**, **Tailwind CSS v4**, and **TypeScript**. This setup is fully configured for **100% offline development** using `pnpm`.
+This is a solution to the [Intro section with dropdown navigation challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/intro-section-with-dropdown-navigation-ryaPetHE5). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## 📐 Architecture
+## Table of contents
 
-This project follows **Feature-Driven Architecture (FDA)** principles to ensure strict code isolation, maintainability, and scalability. All core logic lives inside the `src/` directory, broken down into standardized layers:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I practiced](#what-i-practiced)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-- `src/app/` — Global configurations, providers, styles, and Next.js App Router layout/page definitions.
-- `src/pages/` — Composition layer for full-screen application views.
-- `src/widgets/` — Self-contained, structural UI blocks (e.g., `Header`, `Footer`, `Sidebar`).
-- `src/features/` — User interactions that bring business value (e.g., `AuthForm`, `LanguageSwitcher`).
-- `src/entities/` — Core business models, components, and state (e.g., `UserCard`, `ProductRow`).
-- `src/shared/` — Reusable, decoupled assets, UI primitives (`shared/ui`), API clients, and custom React hooks.
+## Overview
 
-## 🛠 Offline Setup & Usage
+### The challenge
 
-Since all modules are pre-cached in your local global store (`~/development/pnpm-store`), you can spin up brand-new projects completely without an internet connection.
+Users should be able to:
 
-### Creating a New Project from this Template:
+- View the relevant dropdown menus on desktop and mobile when interacting with the navigation links
+- View the optimal layout for the content depending on their device's screen size
+- See hover states for all interactive elements on the page
 
-1. Duplicate this template directory:
-   ```bash
-   cp -R next-clean-template my-new-project
-   ```
-2. Navigate into the new folder and mount the offline dependencies instantly:
-   ```bash
-   cd my-new-project
-   pnpm i --offline
-   ```
+### Screenshot
 
-## ⚡ Available CLI Scripts
+![](/public/images/preview.png)
 
-All commands must be executed from the project root:
+### Links
 
-- `pnpm dev` — Starts the local Next.js development server with Turbopack enabled on [http://localhost:3000](http://localhost:3000).
-- `pnpm build` — Compiles the application for production deployment.
-- `pnpm start` — Starts the production Node.js server.
-- `pnpm lint` — Runs ESLint checks to enforce clean code standards.
+- Solution URL: 
+- Live Site URL: https://intro-section-ecru-gamma.vercel.app/
 
-## 🔗 Absolute Imports Configuration
+## My process
 
-Path aliases are pre-configured in `tsconfig.json`. You can cleanly import your codebase modules using the `@/*` absolute paths from anywhere:
+### Built with
 
-```typescript
-import { Button } from "@/shared/ui";
-import { Header } from "@/widgets/header";
-```
+- [React](https://reactjs.org/) - JS library
+- [Next.js](https://nextjs.org/) - React framework
+- [Tailwind](https://tailwindcss.com)
+- [Sonner](https://ui.shadcn.com/docs/components/radix/sonner)
+- Flexbox
+- Mobile-first workflow
+
+### What I practiced
+
+After taking a break, I spent this session refreshing my core front-end skills. I focused on writing semantic HTML and styling components with Tailwind CSS, including building custom dropdown menus and applying a mobile-first responsive design approach.
+
+### Continued development
+
+Now that I have refreshed the fundamentals, I plan to take on larger, multi-component projects to gain deeper practical experience and keep improving my workflow.
+
+### Useful resources
+
+- [DevDocs](https://devdocs.io) - An essential resource for reading documentation offline when power outages are part of your daily schedule.
+
+## Author
+
+- Website - [Dmytro Farbun](https://my-portfolio-main-eta-jade.vercel.app/)
+- Frontend Mentor - [@Diamond-FoxUA](https://www.frontendmentor.io/profile/Diamond-FoxUA)
+- LinkedIn - [@dmytro-farbun](https://www.linkedin.com/in/dmytro-farbun)
