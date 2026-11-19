@@ -93,7 +93,7 @@ export default function Hero() {
             Learn more
           </a>
 
-          <ul className="flex gap-8 lg:pt-6">
+          <ul className="flex items-center gap-8 lg:pt-6 scale-70 md:scale-100">
             {CLIENTS.map((c) => (
               <li
                 key={c.name}
