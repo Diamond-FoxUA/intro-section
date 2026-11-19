@@ -21,7 +21,10 @@ export default function Header() {
               <use href={`/icons/logo.svg`}></use>
             </svg>
           </a>
-          <Navigation />
+          
+          <div className="hidden lg:block">
+            <Navigation />
+          </div>
         </div>
 
         <button
@@ -34,8 +37,6 @@ export default function Header() {
             <use href={`/icons/icon-menu.svg`}></use>
           </svg>
         </button>
-
-        <div className="hidden lg:block"></div>
 
         <div className="hidden lg:block">
           <AuthBtns />

@@ -1,6 +1,6 @@
 type IconProps = {
   name: string;
-  className: string;
+  className?: string;
   width: number;
   height: number;
 };

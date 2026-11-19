@@ -10,7 +10,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-gray: var(--gray);
-  --font-sans: var(--font-epilogue-sans);
+  --color-gray-light: #ADADAD
 }
 /* 
 @media (prefers-color-scheme: dark) {

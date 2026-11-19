@@ -6,7 +6,7 @@ export default function Home() {
     <div className="flex flex-col flex-1 items-center justify-center">
       <Header />
       
-      <main className="flex flex-col flex-1">
+      <main className="flex flex-col flex-1 w-full h-auto md:px-4.5">
         <Hero />
       </main>
     </div>
