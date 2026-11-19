@@ -31,7 +31,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: 
+- Solution URL: https://www.frontendmentor.io/solutions/responsive-intro-section-using-react-nextjs-and-tailwind-css-4PgrDSXxRo
 - Live Site URL: https://intro-section-ecru-gamma.vercel.app/
 
 ## My process
