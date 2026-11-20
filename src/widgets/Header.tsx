@@ -10,7 +10,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="flex justify-between items-center w-full py-6 px-4.5 lg:px-15">
+      <header className="flex justify-between items-center w-full lg:max-w-350 py-6 px-4.5 lg:px-15">
         <div className="flex gap-15 items-center">
           <a
             href="#"
@@ -21,7 +21,7 @@ export default function Header() {
               <use href={`/icons/logo.svg`}></use>
             </svg>
           </a>
-          
+
           <div className="hidden lg:block">
             <Navigation />
           </div>
